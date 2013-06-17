@@ -1,10 +1,4 @@
 {
-#  "make_global_settings": [
-#    ["CC", "/usr/bin/clang"],
-#    ["CC.host", "/usr/bin/clang"],
-#    ["CXX", "/usr/bin/clang++"],
-#    ["CXX.host", "/usr/bin/clang++"],
-#  ],
   "variables": {
     "target_arch%": "ia32",
     "library%": "static_library",
@@ -76,5 +70,15 @@
         }],
       ],
     }
-  ]
+  ],
+  "conditions": [
+    ["OS=='mac'", {
+      "make_global_settings": [
+        ["CC", "/usr/bin/clang"],
+        ["CC.host", "/usr/bin/clang"],
+        ["CXX", "/usr/bin/clang++"],
+        ["CXX.host", "/usr/bin/clang++"],
+      ],
+    }],
+  ],
 }
