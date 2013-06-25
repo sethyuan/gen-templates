@@ -2,5 +2,5 @@
  * {{{name}}}
  */
 
-#include "__name__.h"
+#include "{{{name}}}.h"
 
