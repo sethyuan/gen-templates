@@ -14,6 +14,7 @@ var express = require("express"),
 app.set("port", {{{port}}});
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hjs");
+app.disable("x-powered-by");
 app.use(express.logger("dev"));
 app.use(express.bodyParser());
 app.use(require("stylus").middleware(path.join(__dirname, "public")));
