@@ -1,0 +1,34 @@
+settings = {
+  -- Orientation settings, possible orientation values are:
+  --  portrait
+  --  portraitUpsideDown
+  --  landscapeRight
+  --  landscapeLeft
+  orientation = {
+    default = "portrait",
+    -- Limit supported orientations.
+    --supported = {"portrait", "portraitUpsideDown", "landscapeLeft", "landscapeRight"},
+  },
+  iphone = {
+    plist = {
+      UIPrerenderedIcon = true,
+      UIStatusBarHidden = true,
+      --UIAppFonts = {"font-1.ttf", "font-2.otf"},
+      CFBundleIconFile = "Icon.png",
+      CFBundleIconFiles = {
+        "Icon.png",
+        "Icon@2x.png",
+        "Icon-72.png",
+        "Icon-72@2x.png",
+      },
+    },
+  },
+  android = {
+    versionCode = "1",
+    usesPermissions = {
+      "android.permission.INTERNET",
+    },
+    largeHeap = false,
+  },
+}
+
