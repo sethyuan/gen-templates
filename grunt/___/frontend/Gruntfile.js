@@ -15,22 +15,22 @@ module.exports = function(grunt) {
       options: {
         jshintrc: path.join(process.env.HOME, ".jshintrc"),
         force: true,
-        ignores: [],
+        ignores: ["**/*.min.js"],
       },
     },
 
     browserify: {
       vis: {
-        src: ["lib/public/scripts/vis*.js"],
+        src: ["lib/public/scripts/vis_*.js"],
         dest: "lib/public/scripts/vis-<%= grunt.option('version') %>.js",
-        options: {
-          ignore: ["lib/public/scripts/vis.js"]
-        }
       }
     },
 
     uglify: {
-      all: ["<%= browserify.vis.dest %>"],
+      all: {
+        src: ["<%= browserify.vis.dest %>"],
+        dest: "lib/public/scripts/vis-<%= grunt.option('version') %>.min.js",
+      },
       options: {
         compress: true,
         mangle: {
