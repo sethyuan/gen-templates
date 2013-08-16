@@ -2,9 +2,9 @@
   "name": "{{{name}}}",
   "version": "0.1.0",
   "description": "{{{desc}}}",
-  "preferGlobal": true,
-  "bin": {
-    "{{{bin.name}}}": "bin/{{{name}}}.js"
+  "main": "./lib/{{{name}}}.js",
+  "scripts": {
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -29,11 +29,20 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "nomnom": "latest",
-    "streamline": "latest"
+    "express": ">=3.3.2 <4.0",
+    "winston": ">=0.7.2",
+    "stylus": ">=0.34.1",
+    "streamline": ">=0.6.0",
+    "hbs": ">=2.3.0",
+    "streamline-express": ">=0.3.1"
   },
   "devDependencies": {
+    "should": "latest",
     "grunt": "latest",
     "grunt-contrib-jshint": "latest"
+    "grunt-contrib-uglify": "latest",
+    "grunt-browserify": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-stylus": "latest"
   }
 }

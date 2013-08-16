@@ -29,6 +29,8 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "should": "latest"
+    "should": "latest",
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest"
   }
 }
