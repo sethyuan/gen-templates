@@ -4,9 +4,9 @@
   },
   "target_defaults": {
     "default_configuration": "Release",
-    "cflags": ["-std=c++98", "-Wall", "-Wextra"],
+    "cflags": ["-std=c++11", "-Wall", "-Wextra"],
     "xcode_settings": {
-      "CLANG_CXX_LANGUAGE_STANDARD": "c++98",
+      "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
       "WARNING_CFLAGS": ["-Wall", "-Wextra"],
     },
     "conditions": [
