@@ -4,10 +4,13 @@
   },
   "target_defaults": {
     "default_configuration": "Release",
-    "cflags": ["-std=c++11", "-Wall", "-Wextra"],
+    "cflags": ["-std=c++11", "-stdlib=libc++", "-Wall", "-Wextra"],
+    "ldflags": ["-stdlib=libc++"],
     "xcode_settings": {
       "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+      "CLANG_CXX_LIBRARY": "libc++",
       "WARNING_CFLAGS": ["-Wall", "-Wextra"],
+      "OTHER_LDFLAGS": ["-stdlib=libc++"],
     },
     "conditions": [
       ["target_arch=='ia32'", {
