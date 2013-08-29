@@ -4,8 +4,7 @@
   },
   "target_defaults": {
     "default_configuration": "Release",
-    "cflags": ["-std=c++11", "-stdlib=libc++", "-Wall", "-Wextra"],
-    "ldflags": ["-stdlib=libc++"],
+    "cflags": ["-std=c++11", "-Wall", "-Wextra"],
     "xcode_settings": {
       "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
       "CLANG_CXX_LIBRARY": "libc++",
