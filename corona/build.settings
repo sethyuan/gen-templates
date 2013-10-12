@@ -14,13 +14,26 @@ settings = {
       UIPrerenderedIcon = true,
       UIStatusBarHidden = true,
       --UIAppFonts = {"font-1.ttf", "font-2.otf"},
-      CFBundleIconFile = "Icon.png",
       CFBundleIconFiles = {
-        "Icon.png",
+        -- iOS >= 7.0
+        "Icon-60.png",
+        "Icon-60@2x.png",
+        "Icon-76.png",
+        "Icon-76@2x.png",
+        -- iOS <= 6.1
+        "Icon.png", -- 57x57
         "Icon@2x.png",
         "Icon-72.png",
         "Icon-72@2x.png",
       },
+      -- Launch images are put directly under the project folder.
+      -- Default.png                320x480
+      -- Default@2x.png             640x960
+      -- Default-568h@2x.png        640x1136
+      -- Default-Portrait.png       768x1004
+      -- Default-Landscape.png      1024x748
+      -- Default-Portrait@2x.png    1536x2008
+      -- Default-Landscape@2x.png   2048x1496
     },
   },
   android = {
@@ -28,7 +41,24 @@ settings = {
     usesPermissions = {
       "android.permission.INTERNET",
     },
+    --usesFeatures = {
+    --  { name = "android.hardware.camera", required = true },
+    --  { name = "android.hardware.location", required = false },
+    --  { name = "android.hardware.location.gps", required = false },
+    --},
     largeHeap = false,
+
+    -- Android icon files are not listed here. Simply put them in
+    -- project folder will suffice.
+    -- Icon-xhdpi.png    96x96
+    -- Icon-hdpi.png     72x72
+    -- Icon-mdpi.png     48x48
+    -- Icon-ldpi.png     36x36
+
+    -- Launch images are put directly under the project folder.
+    -- Default.png                320x480
+    -- Default@2x.png             640x960
+    -- Default-Portrait.png       768x1004
+    -- Default-Landscape.png      1024x748
   },
 }
-

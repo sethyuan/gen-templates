@@ -5,11 +5,8 @@ function scene:createScene(event)
   local group = self.view
 end
 
-function scene:destroyScene(event)
-end
-
 scene:addEventListener("createScene", scene)
-scene:addEventListener("destroyScene", scene)
+--scene:addEventListener("destroyScene", scene)
 --scene:addEventListener("willEnterScene", scene)
 --scene:addEventListener("enterScene", scene)
 --scene:addEventListener("exitScene", scene)
