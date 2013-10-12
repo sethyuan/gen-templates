@@ -49,7 +49,7 @@
       "defines": [],
       "dependencies": [],
       "sources": [
-        "{{{name}}}.cc",
+        "{{{name}}}.cpp",
       ],
       "xcode_settings": {
         "GCC_PREFIX_HEADER": "{{{name}}}_prefix.h",

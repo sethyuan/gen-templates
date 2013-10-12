@@ -52,7 +52,7 @@
       "direct_dependent_settings": [],
       "export_dependent_settings": [],
       "sources": [
-        "{{{name}}}.cc",
+        "{{{name}}}.cpp",
         # header files
         "{{{name}}}.h",
       ],
