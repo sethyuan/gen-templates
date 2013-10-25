@@ -24,13 +24,11 @@
     "email": "{{{user.email}}}"
   },
   "engines": {
-    "node": ">=0.8"
+    "node": ">=0.10"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "should": "latest",
-    "grunt": "latest",
-    "grunt-contrib-jshint": "latest"
+    "chai": "latest"
   }
 }

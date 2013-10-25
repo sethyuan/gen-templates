@@ -1,7 +1,7 @@
 "use strict";
 
-var winston = require("winston"),
-    path = require("path");
+var winston = require("winston");
+var path = require("path");
 
 exports.portalLogger = new winston.Logger({
   transports: [

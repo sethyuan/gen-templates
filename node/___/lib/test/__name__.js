@@ -1,10 +1,13 @@
 "use strict";
 
-var {{{name}}} = require("../"),
-    should = require("should");
+var {{{name}}} = require("../");
+var expect = require("chai").expect;
 
 describe("{{{name}}}", function() {
   it("");
+
+  it("", function() {
+  });
 
   it("", function(done) {
   });

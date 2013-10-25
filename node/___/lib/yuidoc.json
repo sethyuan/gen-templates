@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/{{{user.name}}}/{{{name}}}",
+  "options": {
+    "paths": "lib",
+    "outdir": "apidocs",
+    "tabtospace": 2
+  }
+}

@@ -1,7 +1,7 @@
 "use strict";
 
-var http = require("http"),
-    server = http.createServer();
+var http = require("http");
+var server = http.createServer();
 
 server.on("request", function(req, res) {
   res.writeHead(200, {"Content-Type": "text/plain", "Content-Length": 2});

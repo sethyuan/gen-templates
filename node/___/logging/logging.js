@@ -1,7 +1,7 @@
 "use strict";
 
-var winston = require("winston"),
-    path = require("path");
+var winston = require("winston");
+var path = require("path");
 
 exports.{{{logger name}}}Logger = new winston.Logger({
   transports: [

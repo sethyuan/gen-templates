@@ -24,22 +24,19 @@
     "email": "{{{user.email}}}"
   },
   "engines": {
-    "node": ">=0.8"
+    "node": ">=0.10"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "express": ">=3.3.2 <4.0",
-    "winston": ">=0.7.2",
-    "stylus": ">=0.34.1",
-    "streamline": ">=0.6.0",
-    "hbs": ">=2.3.0",
-    "streamline-express": ">=0.3.1"
+    "express": "latest",
+    "winston": "latest",
+    "stylus": "latest",
+    "hbs": ">=2.3.0"
   },
   "devDependencies": {
-    "should": "latest",
+    "chai": "latest",
     "grunt": "latest",
-    "grunt-contrib-jshint": "latest"
     "grunt-contrib-uglify": "latest",
     "grunt-browserify": "latest",
     "grunt-contrib-concat": "latest",
