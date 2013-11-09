@@ -11,34 +11,59 @@
       "WARNING_CFLAGS": ["-Wall", "-Wextra"],
       "OTHER_LDFLAGS": ["-stdlib=libc++"],
     },
+    "msvs_settings": {
+      "VCCLCompilerTool": {
+        "WarningLevel": 4,
+      },
+    },
     "conditions": [
       ["target_arch=='ia32'", {
         "cflags": ["-m32"],
         "ldflags": ["-m32"],
-        "xcode_settings": {"ARCHS": ["i386"]}
+        "xcode_settings": {"ARCHS": ["i386"]},
+        "msvs_settings": {
+          "VCLinkerTool": {
+            "TargetMachine": 1,
+          },
+        },
       }],
       ["target_arch=='x64'", {
         "cflags": ["-m64"],
         "ldflags": ["-m64"],
-        "xcode_settings": {"ARCHS": ["x86_64"]}
+        "xcode_settings": {"ARCHS": ["x86_64"]},
+        "msvs_settings": {
+          "VCLinkerTool": {
+            "TargetMachine": 17,
+          },
+        },
       }]
     ],
     "configurations": {
       "Debug": {
         "cflags": ["-g", "-O0"],
-        "defines": ["DEBUG"],
         "xcode_settings": {
           "GCC_OPTIMIZATION_LEVEL": "0",
         },
+        "msvs_settings": {
+          "VCCLCompilerTool": {
+            "Optimization": 0,
+          },
+        },
       },
       "Release": {
-        "cflags": ["-O3"],
         "defines": ["NDEBUG"],
+        "cflags": ["-O3"],
         "xcode_settings": {
           "GCC_OPTIMIZATION_LEVEL": "s",
         },
-      }
-    }
+        "msvs_settings": {
+          "VCCLCompilerTool": {
+            "Optimization": 3,
+            "FavorSizeOrSpeed": 1, # favor speed
+          },
+        },
+      },
+    },
   },
   "targets": [
     {
@@ -49,14 +74,14 @@
       "defines": [],
       "dependencies": [],
       "sources": [
-        "{{{name}}}.cpp",
+        "src/{{{name}}}.cpp",
       ],
-      "xcode_settings": {
-        "GCC_PREFIX_HEADER": "{{{name}}}_prefix.h",
-        "GCC_PRECOMPILE_PREFIX_HEADER": "YES",
-        "LD_RUNPATH_SEARCH_PATHS": ["@loader_path/"],
-      },
       "conditions": [
+        ["OS=='mac'", {
+          "xcode_settings": {
+            "LD_RUNPATH_SEARCH_PATHS": ["@loader_path/"],
+          },
+        }],
         ["OS!='mac' and OS!='win'", {
           "link_settings": {
             "ldflags": ["-Wl,-rpath=\$$ORIGIN/"],
