@@ -17,6 +17,7 @@ var exec = require("child_process").exec;
 exports.context = {
   name: "",
   desc: "",
+  port: 0,
   year: function() {
     return (new Date()).getFullYear();
   },
