@@ -59,7 +59,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadTasks("tasks");
 
   // Specify the default task.
   grunt.registerTask("default", [
