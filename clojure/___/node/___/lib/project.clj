@@ -6,13 +6,12 @@
                  [org.clojure/clojurescript "0.0-2173"]]
   :plugins [[lein-cljsbuild "1.0.2"]]
   :hooks [leiningen.cljsbuild]
-  :source-paths ["src/clj"]
-  :cljsbuild {:builds [{:source-paths ["src/cljs"]
+  :cljsbuild {:builds [{:source-paths ["src"]
                         :compiler {:output-to "lib/{{{name}}}.js"
                                    :optimizations :simple
                                    :pretty-print true}}
                        {:id "release"
-                        :source-paths ["src/cljs"]
+                        :source-paths ["src"]
                         :compiler {:output-to "lib/{{{name}}}.js"
                                    :optimizations :advanced
                                    :pretty-print false}}]})
