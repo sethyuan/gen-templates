@@ -40,9 +40,9 @@ app.use(express.bodyParser());
 // app.use(require("stylus").middleware(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.configure("development", function(){
+if (app.get("env") === "development") {
   app.use(express.errorHandler());
-});
+}
 
 app.get("/", routes.index);
 
