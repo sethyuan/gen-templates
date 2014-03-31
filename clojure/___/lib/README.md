@@ -4,13 +4,17 @@
 
 ## Installation
 
-```bash
-$ lein install {{{name}}}
+```clojure
+[{{{name}}} "0.1.0"]
 ```
 
 ## Example
 
+See unit tests.
+
 ## API
+
+TBD
 
 ## License
 
