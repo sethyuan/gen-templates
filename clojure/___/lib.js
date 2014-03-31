@@ -9,4 +9,5 @@ exports.context = {
 
 exports.postProcess = function(context, callback) {
   context.name_for_file = context.name.replace("-", "_");
+  callback();
 }
