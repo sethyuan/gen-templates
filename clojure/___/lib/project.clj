@@ -1,4 +1,4 @@
-(defproject {{{name}}} "0.1.0-SNAPSHOT"
+(defproject {{{name}}} "0.1.0"
   :description "{{{desc}}}"
   :url "https://github.com/sethyuan/{{{name}}}"
   :license {:name "MIT"}
