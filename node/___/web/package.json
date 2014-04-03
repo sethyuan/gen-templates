@@ -32,7 +32,8 @@
     "express": "latest",
     "winston": "latest",
     "stylus": "latest",
-    "hbs": ">=2.3.0"
+    "hbs": ">=2.3.0",
+    "asyncflow": "latest"
   },
   "devDependencies": {
     "chai": "latest",

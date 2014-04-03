@@ -1,6 +1,10 @@
 "use strict";
 
+var cmd = require("./cmd");
+var config = require("./config");
+var logger = require("./logging").appLogger;
+var flow = require("asyncflow");
+
 exports.index = function(req, res) {
-  res.writeHead(200, {"Content-Type": "text/plain", "Content-Length": 2});
   res.send("OK");
 };

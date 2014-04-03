@@ -1,10 +1,12 @@
 "use strict";
 
 var express = require("express");
-var routes = require("./routes");
 var http = require("http");
 var path = require("path");
 var hbs = require("hbs");
+var routes = require("./routes");
+var config = require("./config");
+var logger = require("./logging.js").serverLogger;
 var app = express();
 
 hbs.registerPartials(path.join(__dirname, "../views/partials"));
@@ -31,21 +33,30 @@ hbs.registerHelper("equal", function(x, y, options) {
   return (x === y) ? options.fn() : "";
 });
 
-app.set("port", {{{port}}});
+app.set("env", config.serverMode);
 app.set("views", path.join(__dirname, "../views"));
-app.set("view engine", "hjs");
+app.set("view engine", "hbs");
 app.disable("x-powered-by");
-app.use(express.logger("dev"));
-app.use(express.bodyParser());
-// app.use(require("stylus").middleware(path.join(__dirname, "../public")));
+
+if (app.get("env") === "development") {
+  app.use(express.logger("dev"));
+} else {
+  app.use(express.logger({
+    stream: {
+      write: function(str) {
+        logger.log("verbose", str);
+      }
+    }
+  }));
+}
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.json());
+app.use(express.urlencoded());
+
+app.get("/", routes.index);
 
 if (app.get("env") === "development") {
   app.use(express.errorHandler());
 }
 
-app.get("/", routes.index);
-
-http.createServer(app).listen(app.get("port"), function() {
-  console.log("Express server listening on port " + app.get("port"));
-});
+http.createServer(app).listen(config.port);
