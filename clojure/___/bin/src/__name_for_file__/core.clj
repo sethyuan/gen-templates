@@ -5,4 +5,4 @@
   (:gen-class))
 
 (defn -main [& args]
-  (println x "Hello, World!"))
+  (println "Hello, World!"))
