@@ -2,6 +2,6 @@
   #_(:require-macros [{{{name}}}.macros]))
 
 (defn -main [& args]
-  (println "Hello ClojureScript"))
+  (.log js/console "Hello ClojureScript"))
 
 (set! *main-cli-fn* -main)
