@@ -8,11 +8,13 @@
   :plugins [[lein-cljsbuild "1.0.3"]]
   :hooks [leiningen.cljsbuild]
   :cljsbuild {:builds [{:source-paths ["src"]
-                        :compiler {:output-to "lib/{{{name}}}.js"
+                        :compiler {:output-to "bin/{{{name}}}.js"
                                    :optimizations :simple
+                                   :target :nodejs
                                    :pretty-print true}}
                        {:id "release"
                         :source-paths ["src"]
-                        :compiler {:output-to "lib/{{{name}}}.js"
+                        :compiler {:output-to "bin/{{{name}}}.js"
                                    :optimizations :simple
+                                   :target :nodejs
                                    :pretty-print false}}]})

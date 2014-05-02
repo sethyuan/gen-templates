@@ -1,0 +1,37 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "preferGlobal": true,
+  "bin": {
+    "{{{bin.name}}}": "bin/{{{name_for_file}}}.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{{user.name}}}/{{{name}}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/{{{user.name}}}/{{{name}}}/issues",
+    "email": "{{{user.email}}}"
+  },
+  "keywords": [
+  {{#keywords}}
+    "{{{keyword}}}"{{^last}},{{/last}}
+  {{/keywords}}
+  ],
+  "author": {
+    "name": "{{{user.name}}}",
+    "email": "{{{user.email}}}"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "nomnom": "latest"
+  }
+}
