@@ -1,0 +1,5 @@
+{:port 9000
+ ;; Number of workers.
+ :num-of-workers 2
+ ;; Web server operating mode.
+ :server-mode "development"}
