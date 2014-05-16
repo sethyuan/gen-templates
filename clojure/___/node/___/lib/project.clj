@@ -10,9 +10,6 @@
   :cljsbuild {:builds [{:source-paths ["src"]
                         :compiler {:output-to "lib/{{{name}}}.js"
                                    :optimizations :simple
-                                   :pretty-print true}}
-                       {:id "release"
-                        :source-paths ["src"]
-                        :compiler {:output-to "lib/{{{name}}}.js"
-                                   :optimizations :simple
+                                   :closure-warnings {:externs-validation :off
+                                                      :non-standard-jsdoc :off}
                                    :pretty-print false}}]})

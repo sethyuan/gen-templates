@@ -4,8 +4,8 @@
   :license {:name "MIT"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/core.match "0.2.1"]
-                 [org.clojure/core.async "0.1.278.0-76b25b-alpha"]
-                 [clj-cav "0.3.0-SNAPSHOT"] 
+                 [org.clojure/core.async "0.1.303.0-886421-alpha"]
+                 [clj-cav "0.4.0"] 
                  [ring/ring-core "1.2.2"]
                  [ring/ring-jetty-adapter "1.2.2"]
                  [ring/ring-devel "1.2.2"]
