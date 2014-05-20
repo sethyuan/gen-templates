@@ -19,16 +19,18 @@
                        {:id "{{{name}}}-release"
                         :source-paths ["src"]
                         :compiler {:output-to "bin/{{{name}}}.js"
-                                   :output-dir "target/{{{name}}}-release-out"
+                                   :output-dir "bin/{{{name}}}-out"
+                                   :source-map "bin/{{{name}}}.js.map"
                                    :optimizations :simple
                                    :target :nodejs
                                    :pretty-print false}}
                        {:id "{{{name}}}-test"
                         :source-paths ["src" "test"]
                         :compiler {:output-to "test/{{{name}}}-test.js"
-                                   :output-dir "target/{{{name}}}-test-out"
+                                   :output-dir "test/{{{name}}}-out"
+                                   :source-map "test/{{{name}}}.js.map"
                                    :optimizations :simple
                                    :target :nodejs
-                                   :pretty-print false}}]
+                                   :pretty-print true}}]
               :test-commands {"unit-tests" ["node" "test/node_runner.js"
                                             "test/{{{name}}}-test.js"]}})

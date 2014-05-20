@@ -26,4 +26,8 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
-lib/{{{name}}}.js
+*.map
+bin/{{{name}}}.js
+bin/{{{name}}}-out/
+test/{{{name}}}-test.js
+test/{{{name}}}-out/
