@@ -1,6 +1,5 @@
 (ns {{{name}}}.core
-  (:require [cljs.nodejs :as nodejs])
-  #_(:require-macros [{{{name}}}.macros]))
+  (:require [cljs.nodejs :as nodejs]))
 
 (defn -main [& args]
   (.log js/console "Hello ClojureScript"))
