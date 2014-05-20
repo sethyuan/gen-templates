@@ -24,7 +24,7 @@
     (.use app (morgan #js {"stream" #js {"write" #(verbose %)}})))
 
   (doto app
-    (.use (.static express (.join path js/__dirname "../public")))
+    (.use (.static express "public"))
     (.use (body-parser)))
 
   (doto app

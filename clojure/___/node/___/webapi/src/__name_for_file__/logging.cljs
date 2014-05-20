@@ -13,7 +13,7 @@
                                   (File. #js {"colorize" false
                                               "level" "info"
                                               "timestamp" true
-                                              "filename" (.join path js/__dirname "../log/app.log")
+                                              "filename" "log/app.log"
                                               "maxsize" (* 10 1024 1024)
                                               "maxFile" 30
                                               "json" false})]
@@ -27,7 +27,7 @@
                                   (File. #js {"colorize" false
                                               "level" "verbose"
                                               "timestamp" true
-                                              "filename" (.join path js/__dirname "../log/server.log")
+                                              "filename" "log/server.log"
                                               "maxsize" (* 10 1024 1024)
                                               "maxFile" 30
                                               "json" false})]
