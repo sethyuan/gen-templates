@@ -30,5 +30,8 @@
     "body-parser": "latest",
     "errorhandler": "latest",
     "winston": "latest"
+  },
+  "devDependencies": {
+    "source-map-support": "latest"
   }
 }

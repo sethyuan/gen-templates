@@ -1,7 +1,7 @@
 (ns {{{name}}}.routes
   (:require [{{{name}}}.logging]
             [cljs.core.async])
-  (:require-macros [{{{name}}}.macros :refer [deflogs]]
+  (:require-macros [{{{name}}}.core :refer [deflogs]]
                    [cav.macros.cljs :refer [async]]))
 
 (deflogs {{{name}}}.logging/app)

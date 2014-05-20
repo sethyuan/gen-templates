@@ -26,3 +26,8 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
+*.map
+lib/main.js
+lib/main-out/
+test/main-test.js
+test/main-out/

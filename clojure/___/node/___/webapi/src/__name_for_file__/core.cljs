@@ -1,10 +1,10 @@
-(ns {{{name}}}.main
+(ns {{{name}}}.core
   (:require [cljs.nodejs :as nodejs]
             [{{{name}}}.server :as server]
             [{{{name}}}.logging]
             [{{{name}}}.commands :as cmd]
             [{{{name}}}.conf :refer [conf]])
-  (:require-macros [{{{name}}}.macros :refer [deflogs]]))
+  (:require-macros [{{{name}}}.core :refer [deflogs]]))
 
 (def cluster (js/require "cluster"))
 

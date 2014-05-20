@@ -2,7 +2,7 @@
   (:require [{{{name}}}.routes :as routes]
             [{{{name}}}.conf :refer [conf]]
             [{{{name}}}.logging])
-  (:require-macros [{{{name}}}.macros :refer [deflogs]]))
+  (:require-macros [{{{name}}}.core :refer [deflogs]]))
 
 (defn start []
   (deflogs {{{name}}}.logging/server)

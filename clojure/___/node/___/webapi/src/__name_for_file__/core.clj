@@ -1,4 +1,4 @@
-(ns {{{name}}}.macros)
+(ns {{{name}}}.core)
 
 (defmacro deflogs
   "Generate log functions: info, verbose, warn, error, debug."
