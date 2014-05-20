@@ -1,3 +1,5 @@
+lib/{{{name}}}-out/
+bin/run_.js
 test/
 src/
 target/

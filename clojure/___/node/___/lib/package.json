@@ -29,6 +29,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
+    "source-map-support": "latest",
     "chai": "latest"
   }
 }

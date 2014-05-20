@@ -1,2 +1,1 @@
-(ns {{{name}}}.core
-  #_(:require-macros [{{{name}}}.macros]))
+(ns {{{name}}}.core)

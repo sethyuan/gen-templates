@@ -1,6 +1,6 @@
 "use strict";
 
-var {{{name}}} = require("../");
+var {{{name}}} = require("../lib/run_");
 var expect = require("chai").expect;
 
 describe("{{{name}}}", function() {
