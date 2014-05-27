@@ -19,6 +19,5 @@
                         :source-paths ["src"]
                         :compiler {:output-to "target/{{{name}}}.js"
                                    :output-dir "target/{{{name}}}-release-out"
-                                   :source-map "target/{{{name}}}.js.map"
                                    :optimizations :advanced
                                    :pretty-print false}}]})
