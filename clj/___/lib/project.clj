@@ -7,10 +7,15 @@
                  [org.clojure/core.async "0.1.303.0-886421-alpha"]
                  [clj-cav "0.4.0"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.trace "0.7.8"]
-                                  [org.clojure/clojurescript "0.0-2202"]]
-                   :plugins [[com.keminglabs/cljx "0.3.2"]
-                             [lein-cljsbuild "1.0.3"]
-                             [com.cemerick/clojurescript.test "0.3.0"]]}}
+                                  [org.clojure/clojurescript "0.0-2202"]]}}
+  :plugins [[com.keminglabs/cljx "0.3.2"]
+            [lein-cljsbuild "1.0.3"]
+            [com.cemerick/clojurescript.test "0.3.0"]
+            [codox "0.8.9"]]
+  :codox {:language :clojure
+          :src-dir-uri "https://github.com/sethyuan/{{{name}}}/blob/master/"
+          :src-linenum-anchor-prefix "L"
+          :src-uri-mapping {#"target/classes" #(str "src/" % "x")}}
   :cljx {:builds [{:source-paths ["src-cljx"]
                    :output-path "target/classes"
                    :rules :clj}

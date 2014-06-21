@@ -6,9 +6,13 @@
                  [org.clojure/core.match "0.2.1"]
                  [org.clojure/core.async "0.1.303.0-886421-alpha"]
                  [clj-cav "0.4.0"]]
-  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2202"]]
-                   :plugins [[lein-cljsbuild "1.0.3"]
-                             [com.cemerick/clojurescript.test "0.3.0"]]}}
+  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2202"]]}}
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [com.cemerick/clojurescript.test "0.3.0"]
+            [codox "0.8.9"]]
+  :codox {:language :clojurescript
+          :src-dir-uri "https://github.com/sethyuan/{{{name}}}/blob/master/"
+          :src-linenum-anchor-prefix "L"}
   :cljsbuild {:builds [{:id "{{{name}}}-test"
                         :source-paths ["src" "test"]
                         :compiler {:output-to "target/{{{name}}}-test.js"
