@@ -2,7 +2,6 @@
   (:require [clojure.core.match :refer [match]]
             [clojure.core.async :as async :refer [go chan >! >!! <! <!! alts!]]
             [cav.core :as cav]
-            [cav.macros :refer :all]
             [org.httpkit.server :as server :refer [with-channel send!]]
             [cheshire.core :as cheshire]))
 
