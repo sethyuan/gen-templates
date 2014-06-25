@@ -9,6 +9,7 @@
             [lein-cljsbuild "1.0.3"]
             [com.cemerick/clojurescript.test "0.3.0"]
             [codox "0.8.9"]]
+  :hooks [cljx.hooks]
   :source-paths ["src/clj" "src/cljs"]
   :test-paths ["test/clj" "target/tests"]
   :codox {:language :clojure
@@ -37,8 +38,4 @@
                                    :pretty-print true}}]
               :test-commands {"unit-tests" ["node" "test/node_runner.js"
                                             "test/run.js"]}} 
-  :aliases {"test!" ["do" ["cljx"] ["test"]]
-            "check!" ["do" ["cljx"] ["check"]]
-            "jar!" ["do" ["cljx"] ["jar"]]
-            "uberjar!" ["do" ["cljx"] ["uberjar"]]
-            "cljstest!" ["do" ["cljx"] ["cljsbuild" "once"] ["cljsbuild" "test"]]})
+  :aliases {"cljstest" ["do" ["cljx"] ["cljsbuild" "test"]]})
