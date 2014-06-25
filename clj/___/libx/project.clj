@@ -3,7 +3,7 @@
   :url "https://github.com/sethyuan/{{{name}}}"
   :license {:name "MIT"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [cav/core "0.1.0"]]
+                 [cav/cljcav "0.1.0"]]
   :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2234"]]}}
   :plugins [[com.keminglabs/cljx "0.4.0"]
             [lein-cljsbuild "1.0.3"]
@@ -32,14 +32,13 @@
                         :compiler {:output-to "target/{{{name}}}-test.js"
                                    :output-dir "target/{{{name}}}-test-out"
                                    :source-map "target/{{{name}}}-test.js.map"
-                                   :optimizations :simple
+                                   :optimizations :none
                                    :target :nodejs
                                    :pretty-print true}}]
               :test-commands {"unit-tests" ["node" "test/node_runner.js"
-                                            "target/{{{name}}}-test.js"]}} 
+                                            "test/run.js"]}} 
   :aliases {"test!" ["do" ["cljx"] ["test"]]
             "check!" ["do" ["cljx"] ["check"]]
             "jar!" ["do" ["cljx"] ["jar"]]
             "uberjar!" ["do" ["cljx"] ["uberjar"]]
-            ;; "cljstest!" ["do" ["cljx"] ["cljsbuild" "once"] ["cljsbuild" "test"]]
-            })
+            "cljstest!" ["do" ["cljx"] ["cljsbuild" "once"] ["cljsbuild" "test"]]})

@@ -5,7 +5,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/core.match "0.2.1"]
                  [org.clojure/core.async "0.1.303.0-886421-alpha"]
-                 [cav/core "0.1.0"] 
+                 [cav/cljcav "0.1.0"] 
                  [ring/ring-core "1.2.2"]
                  [ring/ring-jetty-adapter "1.2.2"]
                  [ring/ring-devel "1.2.2"]
