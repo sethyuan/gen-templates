@@ -3,11 +3,12 @@
   :url "https://github.com/sethyuan/{{{name}}}"
   :license {:name "MIT"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [cav/cljcav "0.1.0"]]
-  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2234"]]}}
+                 [cav/cljcav "0.1.1"]]
+  :global-vars {*warn-on-reflection* true}
+  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2261"]]}}
   :plugins [[com.keminglabs/cljx "0.4.0"]
             [lein-cljsbuild "1.0.3"]
-            [com.cemerick/clojurescript.test "0.3.0"]
+            [com.cemerick/clojurescript.test "0.3.1"]
             [codox "0.8.9"]]
   :hooks [cljx.hooks]
   :source-paths ["src/clj" "src/cljs"]
