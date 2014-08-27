@@ -9,5 +9,6 @@
   :jvm-opts ^:replace []
   :plugins [[codox "0.8.10"]]
   :codox {:language :clojure
+          :defaults {:doc/format :markdown}
           :src-dir-uri "https://github.com/sethyuan/{{{name}}}/blob/master/"
           :src-linenum-anchor-prefix "L"})
