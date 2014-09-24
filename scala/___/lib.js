@@ -1,6 +1,7 @@
 var exec = require("child_process").exec;
 
 exports.context = {
+  group: "",
   name: "",
   desc: "",
   year: function() {
