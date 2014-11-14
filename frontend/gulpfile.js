@@ -51,7 +51,7 @@ function pack(debug, watch) {
       new webpack.optimize.OccurenceOrderPlugin(),
     ]
   }, function(err, stats) {
-    err && console.error(err);
+    console.log(stats.toString({colors: true}));
   });
 }
 
