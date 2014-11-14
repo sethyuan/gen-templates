@@ -46,7 +46,7 @@ function pack(debug, watch) {
     cache: true,
     watch: watch,
     devtool: debug ? "source-map" : "",
-    plugins: [
+    plugins: debug ? [] : [
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
     ]
