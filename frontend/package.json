@@ -1,0 +1,15 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "author": "{{{user.name}}}",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-bower-deps": "^0.2.3",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-autoprefixer": "^1.0.1",
+    "webpack": "^1.4.13",
+    "del": "^0.1.3"
+  }
+}
