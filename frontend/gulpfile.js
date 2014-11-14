@@ -65,7 +65,7 @@ gulp.task("css", css.bind(null, false));
 gulp.task("js-debug", pack.bind(null, true, false));
 gulp.task("js", pack.bind(null, false, false));
 
-gulp.task("watch", ["css-debug"], function() {
+gulp.task("watch", ["css-debug"], function(cb) {
   gulp.watch("sass/*.scss", ["css-debug"]);
   pack(true, true);
 });
