@@ -1,9 +1,10 @@
 var gulp = require("gulp");
+var del = require("del");
+var browserSync = require("browser-sync");
 var sass = require("gulp-ruby-sass");
 var prefixer = require("gulp-autoprefixer");
+var sourcemaps = require("gulp-sourcemaps");
 var webpack = require("webpack");
-var path = require("path");
-var del = require("del");
 var bower = require("gulp-bower-deps")({
   deps: {
     "bootstrap-sass-official": {
@@ -19,55 +20,64 @@ var bower = require("gulp-bower-deps")({
 
 bower.installtask(gulp);
 
-function css(debug) {
-  return gulp.src("sass/*.scss")
-    .pipe(sass(debug ? {
-      sourcemap: true,
-      sourcemapPath: "../../sass/",
-      style: "expanded",
-    } : {
-      "sourcemap=none": true,
-      style: "compressed"
-    }))
-    .on("error", function(err) {
-      console.log(err.message);
-    })
-    .pipe(prefixer())
-    .pipe(gulp.dest("public/css"));
-}
+gulp.task("default", ["dev"]);
 
-function pack(debug, watch) {
+gulp.task("clean", function(cb) {
+  del(["public/js", "public/css"], cb);
+});
+
+gulp.task("dev", ["css-debug", "browser-sync"], function(cb) {
+  gulp.watch("frontend/scss/*.scss", ["css-debug"]);
   webpack({
-    entry: "./js/app.js",
+    entry: "./frontend/js/app.js",
     output: {
-      path: path.join(__dirname, "public/js"),
-      filename: "app.js",
+      path: "public/js",
+      filename: "app.js"
     },
     cache: true,
-    watch: watch,
-    devtool: debug ? "source-map" : "",
-    plugins: debug ? [] : [
+    watch: true,
+    devtool: "source-map",
+  }, function(err, stats) {
+    console.log(stats.toString({colors: true}));
+  });
+});
+
+gulp.task("prod", ["clean", "css", "js"]);
+
+gulp.task("browser-sync", function() {
+  browserSync({
+   server: {baseDir: "public"},
+    // proxy: "localhost:8000",
+    files: ["public/**/*.html", "public/**/*.css", "public/**/*.js"]
+  });
+});
+
+gulp.task("css-debug", function() {
+  return sass("frontend/scss", {sourcemap: true, style: "expanded"})
+    .pipe(prefixer())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest("public/css"));
+});
+
+gulp.task("css", function() {
+  return sass("frontend/scss", {style: "compressed"})
+    .pipe(prefixer())
+    .pipe(gulp.dest("public/css"));
+});
+
+gulp.task("js", function() {
+  webpack({
+    entry: "./frontend/js/app.js",
+    output: {
+      path: "public/js",
+      filename: "app.js"
+    },
+    cache: true,
+    plugins: [
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
     ]
   }, function(err, stats) {
     console.log(stats.toString({colors: true}));
   });
-}
-
-gulp.task("clean", function(cb) {
-  del(["public/js", "public/css"], cb);
 });
-
-gulp.task("css-debug", css.bind(null, true));
-gulp.task("css", css.bind(null, false));
-
-gulp.task("js-debug", pack.bind(null, true, false));
-gulp.task("js", pack.bind(null, false, false));
-
-gulp.task("watch", ["css-debug"], function(cb) {
-  gulp.watch("sass/*.scss", ["css-debug"]);
-  pack(true, true);
-});
-
-gulp.task("release", ["clean", "css", "js"]);
