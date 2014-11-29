@@ -20,9 +20,6 @@ exports.context = {
   year: function() {
     return (new Date()).getFullYear();
   },
-  keywords: [
-    { keyword: "" }
-  ],
   user: {
     name: null,
     email: null
