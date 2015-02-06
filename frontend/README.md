@@ -18,5 +18,5 @@ gulp bower
 
 **bower**: download libraries.<br>
 **clean**: clean generated files.<br>
-**dev**: watch for debug version of js and css processing.<br>
+**default**: watch for debug version of js and css processing.<br>
 **prod**: clean and generate release version of files.

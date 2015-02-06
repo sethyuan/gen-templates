@@ -1,7 +1,0 @@
-lib/main-out/
-bin/run_.js
-test/
-src/
-target/
-project.clj
-.tern-project
