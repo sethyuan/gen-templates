@@ -56,6 +56,9 @@ gulp.task("css-dev", function() {
       paths: ["bower_components/bootstrap/less", "src/less/include"],
       plugins: [autoprefix]
     }))
+    .on("error", function(err) {
+      console.error(err);
+    })
     .pipe(sourcemaps.write())
     .pipe(gulp.dest("css"));
 });
