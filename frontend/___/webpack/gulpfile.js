@@ -29,7 +29,7 @@ gulp.task("browser-sync", function() {
   browserSync({
     // proxy: "localhost:8000",
     server: {baseDir: "."},
-    files: ["*.html", "css/**/*.css", "js/**/*.js"]
+    files: ["*.html", "css/*.css", "js/*.js"]
   });
 });
 
@@ -47,7 +47,7 @@ function bundle(dev) {
     module: {
       loaders: [
         {test: /\.less$/, loader: "style!css?minimize!autoprefixer?{browsers:['last 2 versions', 'ie 8', 'ie 9']}!less"},
-        {test: /\.jsx$/, loader: "jsx"},
+        {test: /\.jsx?$/, exclude: /node_modules/, loader: "babel?{optional: 'selfContained', loose: ['es6.forOf', 'es6.properties.computed']}"},
         {test: /\.(png|jpg|gif)$/, loader: "url?limit=8192"},
       ]
     },
