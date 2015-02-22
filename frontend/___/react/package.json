@@ -1,0 +1,26 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "author": "{{{user.name}}}",
+  "license": "{{{license}}}",
+  "devDependencies": {
+    "autoprefixer-loader": "latest",
+    "babel-loader": "latest",
+    "babel-runtime": "latest",
+    "browser-sync": "latest",
+    "css-loader": "latest",
+    "del": "latest",
+    "file-loader": "latest",
+    "gulp": "latest",
+    "gulp-bower-deps": "latest",
+    "immutable": "latest",
+    "less": "latest",
+    "less-loader": "latest",
+    "react": "latest",
+    "script-loader": "latest",
+    "style-loader": "latest",
+    "url-loader": "latest",
+    "webpack": "latest"
+  }
+}
