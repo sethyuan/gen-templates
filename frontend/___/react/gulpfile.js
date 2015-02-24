@@ -49,7 +49,7 @@ function bundle(dev) {
         {test: /\.less$/, loader: "style!css?minimize!autoprefixer?{browsers:['last 2 versions', 'ie 9']}!less"},
         {test: /\.jsx?$/, exclude: /node_modules/, loader: "babel?{experimental: true, optional: 'runtime', loose: ['es6.forOf', 'es6.properties.computed']}"},
         {test: /\.(png|jpg|gif)$/, loader: "url?limit=8192"},
-        {test: /\.(otf|eot|svg|ttf|woff2?)$/, loader: 'url-loader?limit=8192'},
+        {test: /\.(otf|eot|svg|ttf|woff2?)$/, loader: 'url?limit=8192&name=[name].[ext]'},
       ]
     },
     resolve: {
