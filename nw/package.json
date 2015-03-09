@@ -1,0 +1,17 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "author": "{{{user.name}}}",
+  "readmeFilename": "README.md",
+  "license": "{{{license}}}",
+  "devDependencies": {
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-bower-deps": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-less": "latest",
+    "gulp-babel": "latest",
+    "less": "latest"
+  }
+}
