@@ -16,7 +16,11 @@ gulp bower
 
 ## Gulp tasks
 
-**bower**: download libraries.<br>
-**clean**: clean generated files.<br>
-**default**: watch for debug version of js and css processing.<br>
+**bower**: download libraries.
+
+**clean**: clean generated files.
+
+**default**: watch for debug version of js and css processing.
+
 **prod**: clean and generate release version of files.
+
