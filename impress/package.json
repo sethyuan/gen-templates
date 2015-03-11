@@ -1,0 +1,11 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "author": "{{{user.name}}}",
+  "license": "internal",
+  "devDependencies": {
+    "gulp": "latest",
+    "browser-sync": "latest"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{{title}}}</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="slides.css">
+</head>
+<body>
+  <div id="impress">
+    <div id="intro" class="step" data-x="0" data-y="0" data-z="0">
+      <h1>H1</h1>
+      <p>Sit perspiciatis quibusdam molestiae dolor totam fugit, praesentium praesentium. Id sapiente excepturi suscipit aspernatur culpa fugiat hic! Voluptatum expedita amet accusamus adipisci commodi? Officia illum natus odit esse nobis architecto?</p>
+    </div>
+
+    <div class="step" data-x="0" data-y="1000" data-rotate-z="20">
+      <h1>H1</h1>
+      <p>Sit perspiciatis quibusdam molestiae dolor totam fugit, praesentium praesentium. Id sapiente excepturi suscipit aspernatur culpa fugiat hic! Voluptatum expedita amet accusamus adipisci commodi? Officia illum natus odit esse nobis architecto?</p>
+    </div>
+
+    <div class="step" data-x="0" data-y="2000" data-rotate="40" data-scale="2">
+      <h1>H1</h1>
+      <p>Sit perspiciatis quibusdam molestiae dolor totam fugit, praesentium praesentium. Id sapiente excepturi suscipit aspernatur culpa fugiat hic! Voluptatum expedita amet accusamus adipisci commodi? Officia illum natus odit esse nobis architecto?</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <p>Use spacebar or arrow keys to navigate</p>
+  </div>
+
+  <script src="impress.js"></script>
+  <script>
+    document.body.addEventListener("click", function(e) {
+      var hint = document.querySelector(".hint");
+      hint.classList.toggle("show");
+    });
+    document.body.addEventListener("keydown", function(e) {
+      var hint = document.querySelector(".hint");
+      hint.classList.remove("show");
+    });
+    impress().init();
+  </script>
+</body>
+</html>
