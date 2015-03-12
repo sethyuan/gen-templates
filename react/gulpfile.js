@@ -66,7 +66,7 @@ function bundle(dev) {
         DEV: true
       }),
     ]);
-    opts.devtool = "inline-source-map";
+    opts.devtool = "eval-source-map";
   } else {
     opts.plugins = opts.plugins.concat([
       new webpack.DefinePlugin({

@@ -33,7 +33,7 @@ gulp.task("default", ["css-dev", "browser-sync"], function() {
     },
     cache: true,
     watch: true,
-    devtool: "inline-source-map",
+    devtool: "eval-source-map",
   }, function(err, stats) {
     console.log(stats.toString({colors: true}));
   });
