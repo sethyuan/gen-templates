@@ -28,7 +28,15 @@
   },
   "license": "MIT",
   "readmeFilename": "README.md",
+  "dependencies": {
+    "babel-runtime": "latest"
+  },
   "devDependencies": {
-    "chai": "latest"
+    "gulp": "latest",
+    "del": "latest",
+    "gulp-babel": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-changed": "latest",
+    "source-map-support": "latest"
   }
 }
