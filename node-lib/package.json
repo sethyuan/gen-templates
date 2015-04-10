@@ -15,9 +15,6 @@
     "email": "{{{user.email}}}"
   },
   "keywords": [
-  {{#keywords}}
-    "{{{keyword}}}"{{^last}},{{/last}}
-  {{/keywords}}
   ],
   "author": {
     "name": "{{{user.name}}}",

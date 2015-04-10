@@ -1,0 +1,11 @@
+{
+  "name": "weekly",
+  "version": "0.1.0",
+  "description": "Weekly meeting",
+  "author": "sethyuan",
+  "license": "internal",
+  "devDependencies": {
+    "gulp": "latest",
+    "browser-sync": "latest"
+  }
+}

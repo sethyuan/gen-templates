@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>China Staff Meeting</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="slides.css">
+</head>
+<body>
+  <div id="impress">
+    <!-- <div id="overview" class="step" data&#45;x="0" data&#45;y="0" data&#45;z="0" -->
+    <!--   data&#45;scale="1"> -->
+    <!-- </div> -->
+    <div id="title" class="step" data-x="0" data-y="0" data-z="0">
+      <h1>Front End Engineering</h1>
+      <h2>China Staff Meeting</h2>
+    </div>
+    <div id="pluralsight" class="step slide" data-x="500" data-y="-150" data-scale="0.1">
+      <h1>Pluralsight Trial</h1>
+      <ul>
+        <li>Take a course</li>
+        <li>Evaluate</li>
+        <li>Courses on Egghead</li>
+      </ul>
+    </div>
+    <div id="culture" class="step slide" data-x="500" data-y="-50" data-scale="0.1">
+      <h1>Freedom and Responsibility</h1>
+      <ul>
+        <li>Read it</li>
+        <li>Have it in mind when doing things</li>
+      </ul>
+    </div>
+    <div id="pto" class="step slide" data-x="500" data-y="50" data-scale="0.1">
+      <h1>PTO and Work From Home</h1>
+      <ul>
+        <li>PTO should be scheduled ahead of time</li>
+        <li>Contact and let me know in case of emergency</li>
+        <li>Get the approval from your team before scheduling PTO</li>
+        <li>Avoid work from home unless
+          <ul>
+            <li>You have a meeting early morning</li>
+            <li>You're ill</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="discussion" class="step slide" data-x="500" data-y="150" data-scale="0.1">
+      <h1>Free Discussion</h1>
+      <ul>
+        <li>RequireJS training material</li>
+        <li>Rec.gov issue: Use Java to wrap HTML tags, too complex and inflexible</li>
+        <li>How to debug for very high resolutions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="hint">
+    <p>Use spacebar or arrow keys to navigate</p>
+  </div>
+
+  <script src="impress.js"></script>
+  <script>
+    document.body.addEventListener("dblclick", function(e) {
+      var hint = document.querySelector(".hint");
+      hint.classList.toggle("show");
+    });
+    document.body.addEventListener("keydown", function(e) {
+      var hint = document.querySelector(".hint");
+      hint.classList.remove("show");
+    });
+    impress().init();
+  </script>
+</body>
+</html>
