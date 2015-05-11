@@ -1,0 +1,19 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "author": {
+    "name": "{{{user.name}}}",
+    "email": "{{{user.email}}}"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "license": "{{{license}}}",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
