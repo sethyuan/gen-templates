@@ -119,7 +119,7 @@ function bundle(isDev, once) {
 
 gulp.task("browser-sync", function() {
   browserSync({
-    proxy: "localhost:8000",
+    proxy: "localhost:{{{port}}}",
     files: ["dist/**/*"]
   });
 });
