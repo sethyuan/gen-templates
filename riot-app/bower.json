@@ -1,0 +1,10 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "authors": [
+    "{{{user.name}}} <{{{user.email}}}>"
+  ],
+  "description": "{{{desc}}}",
+  "license": "{{{license}}}",
+  "dependencies": {}
+}

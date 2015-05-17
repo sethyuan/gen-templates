@@ -1,0 +1,33 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "author": "{{{user.name}}} <{{{user.email}}}>",
+  "license": "{{{license}}}",
+  "dependencies": {
+    "babel-runtime": "^5.1.10",
+    "compression": "^1.4.4",
+    "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "latest",
+    "babel-loader": "^5.0.0",
+    "browser-sync": "latest",
+    "css-loader": "latest",
+    "del": "latest",
+    "extract-text-webpack-plugin": "latest",
+    "file-loader": "latest",
+    "gulp": "latest",
+    "gulp-babel": "^5.1.0",
+    "gulp-changed": "latest",
+    "gulp-sourcemaps": "latest",
+    "less": "latest",
+    "less-loader": "latest",
+    "riot": "^2.0.15",
+    "riotjs-loader": "latest",
+    "source-map-support": "latest",
+    "url-loader": "latest",
+    "webpack": "latest"
+  },
+  "contributors": []
+}
