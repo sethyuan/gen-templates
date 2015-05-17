@@ -11,7 +11,8 @@
   "license": "{{{license}}}",
   "readmeFilename": "README.md",
   "dependencies": {
-    "express": "^4.12.3"
+    "compress": "latest",
+    "express": "latest"
   },
   "scripts": {
     "start": "node app.js"
