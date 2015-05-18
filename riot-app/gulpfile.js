@@ -14,7 +14,7 @@ var babelOpts = {
   loose: ["es6.classes", "es6.forOf", "es6.properties.computed"]
 };
 
-gulp.task("default", ["watch"]);
+gulp.task("default", ["dev"]);
 
 gulp.task("clean", function() {
   del(["dist"]);

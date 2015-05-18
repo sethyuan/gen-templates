@@ -1,0 +1,24 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "authors": [
+    "{{{user.name}}} <{{{user.email}}}>"
+  ],
+  "description": "{{{desc}}}",
+  "license": "{{{license}}}",
+  "main": [
+    "dist/{{{name}}}.js",
+    "dist/{{{name}}}.css"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "riot": "^2.0.15"
+  }
+}

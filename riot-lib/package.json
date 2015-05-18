@@ -1,0 +1,25 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "{{{desc}}}",
+  "author": "{{{user.name}}} <{{{user.email}}}>",
+  "license": "{{{license}}}",
+  "devDependencies": {
+    "autoprefixer-loader": "latest",
+    "babel-loader": "^5.0.0",
+    "babel-runtime": "^5.1.10",
+    "browser-sync": "latest",
+    "css-loader": "latest",
+    "del": "latest",
+    "extract-text-webpack-plugin": "latest",
+    "file-loader": "latest",
+    "gulp": "latest",
+    "less": "latest",
+    "less-loader": "latest",
+    "riot": "^2.0.15",
+    "riotjs-loader": "latest",
+    "url-loader": "latest",
+    "webpack": "latest"
+  },
+  "contributors": []
+}
