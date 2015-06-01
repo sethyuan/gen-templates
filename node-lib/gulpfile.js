@@ -12,7 +12,7 @@ gulp.task("default", ["dev"]);
 
 gulp.task("dev", ["build-lib", "build-test"]);
 
-gulp.task("watch", function() {
+gulp.task("watch", ["dev"], function() {
   gulp.watch("./src/**/*.js", ["dev"]);
 });
 
