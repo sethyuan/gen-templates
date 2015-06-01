@@ -4,7 +4,7 @@
   "description": "{{{desc}}}",
   "main": "./lib/{{{name}}}.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
