@@ -1,6 +1,6 @@
-import express from "express"
-import compression from "compression"
-import {port} from "./config"
+import express from "express";
+import compression from "compression";
+import {port} from "./config";
 
 const app = express();
 
