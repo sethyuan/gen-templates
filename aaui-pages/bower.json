@@ -1,0 +1,13 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "authors": [
+    "Seth Yuan <seth.yuan@activenetwork.com>"
+  ],
+  "description": "",
+  "license": "{{{license}}}",
+  "dependencies": {
+    "aaui-styles": "https://gitlab.dev.activenetwork.com/fee/aaui-styles.git",
+    "aaui": "https://gitlab.dev.activenetwork.com/fee/aaui.git"
+  }
+}

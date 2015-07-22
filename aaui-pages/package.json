@@ -1,0 +1,25 @@
+{
+  "name": "{{{name}}}",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Seth Yuan <seth.yuan@activenetwork.com>",
+  "license": "{{{license}}}",
+  "devDependencies": {
+    "autoprefixer-loader": "latest",
+    "browser-sync": "latest",
+    "css-loader": "latest",
+    "del": "latest",
+    "extract-text-webpack-plugin": "latest",
+    "file-loader": "latest",
+    "gulp": "latest",
+    "gulp-changed": "latest",
+    "less": "latest",
+    "less-loader": "latest",
+    "riot": "^2.2.2",
+    "riotjs-loader": "latest",
+    "run-sequence": "latest",
+    "url-loader": "latest",
+    "webpack": "latest"
+  },
+  "contributors": []
+}

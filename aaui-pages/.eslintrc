@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "DEV": false,
+    "riot": false,
+    "require": false,
+  },
+  "rules": {
+    "global-strict": 0, // deprecated rule disabling
+    "strict": [2, "global"],
+    "indent": [2, 2],
+    "quotes": [2, "double"],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "curly": [2, "multi-line"],
+    "no-shadow": 1,
+    "no-constant-condition": 2,
+    "no-console": 1,
+  }
+}
