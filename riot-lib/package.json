@@ -17,7 +17,7 @@
     "gulp": "latest",
     "less": "latest",
     "less-loader": "latest",
-    "riot": "^2.0.15",
+    "riot": "^2.2.2",
     "riotjs-loader": "latest",
     "url-loader": "latest",
     "webpack": "latest"
