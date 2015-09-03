@@ -1,12 +1,15 @@
 var gulp = require("gulp");
+var runSeq = require("run-sequence");
 var del = require("del");
 var babel = require("gulp-babel");
 var changed = require("gulp-changed");
 var sourcemaps = require("gulp-sourcemaps");
-var browserSync = require("browser-sync");
-var execSync = require("child_process").execSync;
+var less = require("gulp-less");
+var autoprefixer = require("gulp-autoprefixer");
+var minifyCss = require('gulp-minify-css');
+var bs = require("browser-sync").create();
+var exec = require("child_process").exec;
 var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var babelOpts = {
   stage: 1,
@@ -14,27 +17,80 @@ var babelOpts = {
   loose: ["es6.classes", "es6.forOf", "es6.properties.computed"]
 };
 
-gulp.task("default", ["dev"]);
+gulp.task("default", ["watch"]);
 
-gulp.task("clean", function() {
-  del(["dist"]);
+gulp.task("clean", function(done) {
+  del(["dist"], done);
 });
 
-gulp.task("dev", ["dev-frontend", "dev-backend"]);
+gulp.task("dev", ["devFrontend", "devBackend"]);
 
-gulp.task("watch", ["dev", "browser-sync"], function() {
-  gulp.watch("src/backend/**/*.js", ["dev-backend"]);
-  bundle(true, false);
+gulp.task("prod", function(done) {
+  runSeq("clean", ["prodFrontend", "prodBackend"], done);
 });
 
-gulp.task("prod", ["prod-frontend", "prod-backend"]);
+gulp.task("watch", ["watchFrontend", "watchBackend"]);
 
-gulp.task("dev-frontend", function() {
-  gulp.src("src/frontend/index.html").pipe(gulp.dest("dist/public"));
-  bundle(true, true);
+gulp.task("devFrontend", ["devJs", "devLess", "copyFrontendFiles"]);
+
+gulp.task("prodFrontend", ["prodJs", "prodLess", "copyFrontendFiles"]);
+
+gulp.task("watchFrontend", ["watchJs", "watchLess"]);
+
+gulp.task("devBackend", ["transpileDevJs", "copyBackendFiles"]);
+
+gulp.task("prodBackend", ["transpileProdJs", "copyBackendFiles"]);
+
+gulp.task("watchBackend", ["devBackend"], function() {
+  gulp.watch("src/backend/**/*.js", ["transpileDevJs"]);
 });
 
-gulp.task("dev-backend", function() {
+gulp.task("devJs", function(done) {
+  buildJs(true, true, done);
+});
+
+gulp.task("prodJs", function(done) {
+  buildJs(false, true, done);
+});
+
+gulp.task("watchJs", function() {
+  var isRunning = false;
+  buildJs(true, false, function() {
+    if (!isRunning) {
+      runSeq("browserSync");
+      isRunning = true;
+    }
+  });
+});
+
+gulp.task("devLess", function() {
+  return gulp.src("src/frontend/app.less")
+    .pipe(sourcemaps.init())
+    .pipe(less())
+    .pipe(autoprefixer({
+      browsers: ["last 2 versions", "ie 9"],
+      cascade: true
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest("dist/public/css"));
+});
+
+gulp.task("prodLess", function() {
+  return gulp.src("src/frontend/app.less")
+    .pipe(less())
+    .pipe(autoprefixer({
+      browsers: ["last 2 versions", "ie 9"],
+      cascade: false
+    }))
+    .pipe(minifyCss({advanced: false}))
+    .pipe(gulp.dest("dist/public/css"));
+});
+
+gulp.task("watchLess", ["devLess"], function() {
+  gulp.watch(["src/frontend/**/*.less"], ["devLess"]);
+});
+
+gulp.task("transpileDevJs", function() {
   return gulp.src("src/backend/**/*.js")
     .pipe(changed("dist"))
     .pipe(sourcemaps.init())
@@ -43,17 +99,29 @@ gulp.task("dev-backend", function() {
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task("prod-frontend", function() {
-  bundle(false, true);
-});
-
-gulp.task("prod-backend", function() {
+gulp.task("transpileProdJs", function() {
   return gulp.src("src/backend/**/*.js")
     .pipe(babel(babelOpts))
     .pipe(gulp.dest("dist"));
 });
 
-function bundle(isDev, once) {
+gulp.task("copyFrontendFiles", function() {
+  return gulp.src("src/frontend/index.html").pipe(gulp.dest("dist/public"));
+});
+
+gulp.task("copyBackendFiles", function() {
+  return gulp.src("src/backend/log/.gitignore").pipe(gulp.dest("dist/log"));
+});
+
+gulp.task("browserSync", function() {
+  exec("node dist/app.js");
+  bs.init({
+    proxy: "localhost:{{{port}}}",
+    files: ["dist/**/*"]
+  });
+});
+
+function buildJs(isDev, once, cb) {
   var opts = {
     entry: {
       app: "./src/frontend/app.js"
@@ -68,62 +136,32 @@ function bundle(isDev, once) {
       ],
       loaders: [
         {test: /\.(js|tag)$/, exclude: /node_modules/, loader: "babel?{stage: 1, optional: 'runtime', loose: ['es6.classes', 'es6.forOf', 'es6.properties.computed']}"},
-        {test: /\.(png|jpg|gif)$/, loader: "url?limit=4096"},
-        {
-          test: /\.less$/,
-          loader: isDev ?
-            ExtractTextPlugin.extract("css?sourceMap!autoprefixer?{browsers:['last 2 versions', 'ie 9']}!less") :
-            ExtractTextPlugin.extract("css?minimize!autoprefixer?{browsers:['last 2 versions', 'ie 9']}!less")
-        }
       ]
     },
     resolve: {
-      extensions: ["", ".js", ".tag"],
-      modulesDirectories: ["node_modules"]
+      extensions: ["", ".js", ".tag"]
     },
     plugins: [
       new webpack.ProvidePlugin({
-        riot: "riot"
+        riot: "riot",
+        RiotControl: "riotcontrol"
       }),
-      new ExtractTextPlugin(
-        isDev ?
-          "../css/[name].css" :
-          "../css/[name].[hash].css",
-        {allChunks: true}
-      )
+      new webpack.DefinePlugin({DEV: mode === DEV})
     ]
   };
 
   if (isDev) {
     opts.watch = !once;
-    opts.plugins = opts.plugins.concat([
-      new webpack.DefinePlugin({
-        DEV: true
-      }),
-    ]);
     opts.devtool = "source-map";
   } else {
     opts.plugins = opts.plugins.concat([
-      new webpack.DefinePlugin({
-        DEV: false
-      }),
-      new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin()
     ]);
   }
 
   webpack(opts, function(err, stats) {
     console.log(stats.toString({colors: true}));
+    if (!err && cb) cb();
   });
 }
-
-gulp.task("browser-sync", function() {
-  browserSync({
-    proxy: "localhost:{{{port}}}",
-    files: ["dist/**/*"]
-  });
-});
-
-gulp.task("run", function() {
-  execSync("node dist/app.js");
-});

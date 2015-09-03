@@ -1,3 +1,7 @@
-import app from "./components/app";
+import "./components/app";
 
-riot.mount("*");
+import appStore from "./stores/appStore";
+
+RiotControl.addStore(appStore);
+
+riot.mount("app");
