@@ -7,6 +7,9 @@ var sourcemaps = require("gulp-sourcemaps");
 var less = require("gulp-less");
 var autoprefixer = require("gulp-autoprefixer");
 var minifyCss = require('gulp-minify-css');
+var minifyHtml = require("gulp-minify-html");
+var inject = require("gulp-inject");
+var hash = require("gulp-hash");
 var bs = require("browser-sync").create();
 var exec = require("child_process").exec;
 var webpack = require("webpack");
@@ -20,22 +23,28 @@ var babelOpts = {
 gulp.task("default", ["watch"]);
 
 gulp.task("clean", function(done) {
-  del(["dist"], done);
+  return del(["dist"], done);
 });
 
 gulp.task("dev", ["devFrontend", "devBackend"]);
 
 gulp.task("prod", function(done) {
-  runSeq("clean", ["prodFrontend", "prodBackend"], done);
+  return runSeq("clean", ["prodFrontend", "prodBackend"], done);
 });
 
 gulp.task("watch", ["watchFrontend", "watchBackend"]);
 
-gulp.task("devFrontend", ["devJs", "devLess", "copyFrontendFiles"]);
+gulp.task("devFrontend", function(done) {
+  return runSeq(["devJs", "devLess"], "copyFrontendFiles", done);
+});
 
-gulp.task("prodFrontend", ["prodJs", "prodLess", "copyFrontendFiles"]);
+gulp.task("prodFrontend", function(done) {
+  return runSeq(["prodJs", "prodLess"], "copyFrontendFiles", done);
+});
 
-gulp.task("watchFrontend", ["watchJs", "watchLess"]);
+gulp.task("watchFrontend", function(done) {
+  return runSeq(["watchJs", "watchLess"], "copyFrontendFiles", done);
+});
 
 gulp.task("devBackend", ["transpileDevJs", "copyBackendFiles"]);
 
@@ -46,19 +55,20 @@ gulp.task("watchBackend", ["devBackend"], function() {
 });
 
 gulp.task("devJs", function(done) {
-  buildJs(true, true, done);
+  return buildJs(true, true, done);
 });
 
 gulp.task("prodJs", function(done) {
-  buildJs(false, true, done);
+  return buildJs(false, true, done);
 });
 
-gulp.task("watchJs", function() {
+gulp.task("watchJs", function(done) {
   var isRunning = false;
   buildJs(true, false, function() {
     if (!isRunning) {
       runSeq("browserSync");
       isRunning = true;
+      done();
     }
   });
 });
@@ -83,6 +93,7 @@ gulp.task("prodLess", function() {
       cascade: false
     }))
     .pipe(minifyCss({advanced: false}))
+    .pipe(hash())
     .pipe(gulp.dest("dist/public/css"));
 });
 
@@ -106,7 +117,14 @@ gulp.task("transpileProdJs", function() {
 });
 
 gulp.task("copyFrontendFiles", function() {
-  return gulp.src("src/frontend/index.html").pipe(gulp.dest("dist/public"));
+  return gulp.src("src/frontend/index.html")
+    .pipe(gulp.dest("dist/public"))
+    .pipe(inject(gulp.src([
+      "dist/public/css/*.css",
+      "dist/public/js/*.js"
+    ], {read: false}), {relative: true}))
+    .pipe(minifyHtml({conditionals: true}))
+    .pipe(gulp.dest("dist/public"));
 });
 
 gulp.task("copyBackendFiles", function() {
