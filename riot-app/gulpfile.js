@@ -146,7 +146,7 @@ function buildJs(isDev, once, cb) {
         riot: "riot",
         RiotControl: "riotcontrol"
       }),
-      new webpack.DefinePlugin({DEV: mode === DEV})
+      new webpack.DefinePlugin({DEV: isDev})
     ]
   };
 
