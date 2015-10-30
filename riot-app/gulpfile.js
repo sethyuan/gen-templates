@@ -1,3 +1,5 @@
+"use strict";
+
 var gulp = require("gulp");
 var runSeq = require("run-sequence");
 var del = require("del");
@@ -6,7 +8,7 @@ var changed = require("gulp-changed");
 var sourcemaps = require("gulp-sourcemaps");
 var less = require("gulp-less");
 var autoprefixer = require("gulp-autoprefixer");
-var minifyCss = require('gulp-minify-css');
+var minifyCss = require("gulp-minify-css");
 var minifyHtml = require("gulp-minify-html");
 var inject = require("gulp-inject");
 var hash = require("gulp-hash");
@@ -128,6 +130,7 @@ gulp.task("copyFrontendFiles", function() {
 });
 
 gulp.task("copyBackendFiles", function() {
+  gulp.src("package.json").pipe(gulp.dest("dist"));
   return gulp.src("src/backend/log/.gitignore").pipe(gulp.dest("dist/log"));
 });
 
@@ -150,7 +153,7 @@ function buildJs(isDev, once, cb) {
     },
     module: {
       preLoaders: [
-        {test: /\.tag$/, exclude: /node_modules/, loader: "riotjs"}
+        {test: /\.tag$/, exclude: /node_modules/, loader: "riotjs?brackets=@{ }"}
       ],
       loaders: [
         {test: /\.(js|tag)$/, exclude: /node_modules/, loader: "babel?{stage: 1, optional: 'runtime', loose: ['es6.classes', 'es6.forOf', 'es6.properties.computed']}"},

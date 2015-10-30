@@ -1,7 +1,7 @@
+"use strict";
+
+import "./stores/app-store";
 import "./components/app";
 
-import appStore from "./stores/appStore";
-
-RiotControl.addStore(appStore);
-
+riot.settings.brackets = "@{ }";
 riot.mount("app");

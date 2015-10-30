@@ -2,6 +2,7 @@ var execSync = require("child_process").execSync;
 
 exports.context = {
   name: "",
+  prefix: "",
   desc: "",
   port: 0,
   license: "",
